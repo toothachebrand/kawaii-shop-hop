@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kawaii Shop Hop — add your shop</title>
+<link rel="stylesheet" href="/ring.css">
+<link rel="icon" href="/badge/badge.svg">
+</head><body>
+<div class="win">
+  <div class="title"><span>Kawaii Shop Hop — add your shop</span><span class="dots"><i></i><i></i><i></i></span></div>
+  <div class="addr"><span>https://ring.toothacheshop.com/join/</span></div>
+  <div class="body">
+    <h1>Add your shop</h1>
+    <p class="lede">The ring is small on purpose and every shop is read by a person before it goes in. Here's the whole process.</p>
+
+    <h2>1. Send your details</h2>
+    <p>Fill in the short form on the Toothache site: shop name, address, one line about what you make, and an email we can reach you at.</p>
+    <p><a class="btn primary" href="https://toothacheshop.com/pages/join-the-ring">Open the form</a></p>
+
+    <h2>2. We reply with your slug</h2>
+    <p>Your slug is your shop's short name in the ring — <code>toothache</code>, for instance. It goes in the code below and never changes.</p>
+
+    <h2>3. Paste the code on your site</h2>
+    <p>Anywhere a visitor will see it: footer, sidebar, an "internet friends" page. Swap <code>YOUR-SLUG</code> for the slug we send you.</p>
+    <label for="slug">Try it — type your slug and the code updates</label>
+    <input class="field" id="slug" placeholder="your-slug" autocomplete="off" spellcheck="false">
+    <pre id="snippet">&lt;!-- Kawaii Shop Hop --&gt;
+&lt;div class=&quot;kawaii-shop-hop&quot; style=&quot;text-align:center;font:12px sans-serif;padding:14px 0&quot;&gt;
+  &lt;a href=&quot;https://ring.toothacheshop.com/prev/YOUR-SLUG/&quot;&gt;&amp;#8592; prev&lt;/a&gt;
+  &lt;a href=&quot;https://ring.toothacheshop.com/&quot; style=&quot;margin:0 10px&quot;&gt;&lt;img
+     src=&quot;https://ring.toothacheshop.com/badge/badge.svg&quot;
+     alt=&quot;Kawaii Shop Hop&quot; width=&quot;88&quot; height=&quot;31&quot; style=&quot;vertical-align:middle&quot;&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://ring.toothacheshop.com/next/YOUR-SLUG/&quot;&gt;next &amp;#8594;&lt;/a&gt;
+&lt;/div&gt;</pre>
+    <p><button class="btn" type="button" id="copy">Copy the code</button> <span id="copied" style="color:var(--ink-soft)"></span></p>
+
+    <div class="note"><b>It's plain HTML on purpose.</b> No script tag, so it survives Shopify rich text, Squarespace code blocks, Wix embeds, WordPress custom HTML, Neocities and Carrd alike. Restyle it however you like — the crawler only looks for the two links, not the styling.</div>
+
+    <h2>4. Tell us it's live</h2>
+    <p>Reply to the email and we'll add you. Once you're in, your prev and next links start working immediately.</p>
+
+    <h2>Staying in</h2>
+    <ul>
+      <li>A crawler visits each shop once a day and checks the code is still on your page.</li>
+      <li>If your site is simply unreachable — maintenance, a firewall, a bad afternoon — that's not held against you.</li>
+      <li>If the code is gone for three days running we email you.</li>
+      <li>After fourteen days we quietly take the shop out of the rotation. Your record stays, so coming back is one email.</li>
+    </ul>
+
+    <h2>No website?</h2>
+    <p>If you sell through Instagram or TikTok alone, you can still be listed as a friend of the ring on the front page. You can't be part of the hop itself, because a profile page can't carry a visitor on to the next shop.</p>
+<script>
+(function(){
+  var tpl = "<!-- Kawaii Shop Hop -->\n<div class=\"kawaii-shop-hop\" style=\"text-align:center;font:12px sans-serif;padding:14px 0\">\n  <a href=\"https://ring.toothacheshop.com/prev/YOUR-SLUG/\">&#8592; prev</a>\n  <a href=\"https://ring.toothacheshop.com/\" style=\"margin:0 10px\"><img\n     src=\"https://ring.toothacheshop.com/badge/badge.svg\"\n     alt=\"Kawaii Shop Hop\" width=\"88\" height=\"31\" style=\"vertical-align:middle\"></a>\n  <a href=\"https://ring.toothacheshop.com/next/YOUR-SLUG/\">next &#8594;</a>\n</div>";
+  var i = document.getElementById("slug"), out = document.getElementById("snippet"), c = document.getElementById("copy"), ok = document.getElementById("copied");
+  function slugify(v){ return v.toLowerCase().replace(/[^a-z0-9-]+/g,"-").replace(/^-+|-+$/g,""); }
+  function render(){ out.textContent = tpl.replace(/YOUR-SLUG/g, slugify(i.value) || "YOUR-SLUG"); }
+  i.addEventListener("input", render); render();
+  c.addEventListener("click", function(){
+    navigator.clipboard.writeText(out.textContent).then(function(){
+      ok.textContent = "Copied."; setTimeout(function(){ ok.textContent = ""; }, 2200);
+    }, function(){ ok.textContent = "Select the code above and copy it."; });
+  });
+})();
+</script>
+  </div>
+</div>
+<footer>kept by <a href="https://toothacheshop.com">Toothache</a> · <a href="/">the ring</a> · <a href="/join/">join</a> · <a href="/about/">about the crawler</a></footer>
+</body></html>

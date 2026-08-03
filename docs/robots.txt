@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /next/
+Disallow: /prev/
+Disallow: /random/
+Sitemap: https://ring.toothacheshop.com/sitemap.txt
