@@ -1,0 +1,31 @@
+name: Check a pull request
+
+# Runs when you open a PR adding a shop. Validates members.json and, for any
+# member you've marked "pending", checks whether their code is actually live
+# before you merge. It never fails on a missing code — that is information
+# for you, not a gate.
+
+on:
+  pull_request:
+    paths:
+      - "members.json"
+      - "scripts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate members.json
+        run: node scripts/build.mjs --dry
+
+      - name: Pre-flight the pending shops
+        run: node scripts/crawl.mjs --preflight
