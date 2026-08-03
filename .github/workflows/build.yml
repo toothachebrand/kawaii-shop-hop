@@ -1,0 +1,46 @@
+name: Build the ring
+
+# Runs when the member list or the build script changes. It commits the
+# generated docs/ folder back to main, which is what GitHub Pages serves.
+# paths-ignore keeps that commit from triggering this workflow again.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "data/**"
+      - "README.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-ring
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate the site
+        run: node scripts/build.mjs
+
+      - name: Commit docs/
+        run: |
+          git config user.name "kawaii-shop-hop"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Rebuild the ring"
+            git push
+          fi
