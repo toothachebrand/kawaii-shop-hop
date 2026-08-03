@@ -1,0 +1,62 @@
+name: Check the ring
+
+# Visits every shop once a day. Because a commit made with GITHUB_TOKEN does
+# not trigger other workflows, this job rebuilds the site itself rather than
+# relying on Build the ring to notice.
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # 09:17 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: build-ring
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Visit every shop
+        run: node scripts/crawl.mjs
+
+      - name: Rebuild if the crawl changed anything
+        run: node scripts/build.mjs
+
+      - name: Commit results
+        run: |
+          git config user.name "kawaii-shop-hop"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs members.json
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Ring check $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Open an issue for anything that needs you
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -s data/flags.txt ] || { echo "All quiet."; exit 0; }
+          while IFS='|' read -r kind slug name detail; do
+            [ -n "$kind" ] || continue
+            gh issue create \
+              --title "$kind: $name ($slug)" \
+              --label "ring-check" \
+              --body "$(printf '%s\n\n%s\n\n---\n\n%s' \
+                  "$detail" \
+                  "Their contact address is in the join-the-ring form inbox — it is deliberately not stored in this repo." \
+                  "$(cat data/last-report.md)")"
+          done < data/flags.txt
