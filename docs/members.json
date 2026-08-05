@@ -18,6 +18,16 @@
         "clothing"
       ],
       "joined": "2026-08-03"
+    },
+    {
+      "slug": "wicked_wild_treasures",
+      "name": "Wicked Wild Treasures",
+      "url": "https://wicked-wild-treasures.myshopify.com/",
+      "blurb": "Creepy cute handmade trinkets (and storage for them)!",
+      "tier": "ring",
+      "status": "pending",
+      "joined": "2026-08-05",
+      "tags": ["trinkets"]
     }
   ],
   "friends": []
