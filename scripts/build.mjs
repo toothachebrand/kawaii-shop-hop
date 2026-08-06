@@ -450,6 +450,7 @@ if (existsSync(OUT)) await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT, { recursive: true });
 
 await put("CNAME", new URL(cfg.host).hostname + "\n");
+await put(".nojekyll", "");
 await put("ring.css", CSS.trim() + "\n");
 await put("badge/badge.svg", badgeSVG);
 await put("embed.js", embedJS(cfg));
