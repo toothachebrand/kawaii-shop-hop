@@ -1,0 +1,22 @@
+{
+  "ring": {
+    "name": "Kawaii Shop Hop",
+    "tagline": "small kawaii labels linking to each other, the old way",
+    "host": "https://ring.toothacheshop.com",
+    "hub": "https://toothacheshop.com",
+    "applyUrl": "https://toothacheshop.com/pages/join-the-ring",
+    "keeper": "Toothache"
+  },
+  "members": [
+    {
+      "slug": "toothache",
+      "name": "Toothache",
+      "url": "https://toothacheshop.com",
+      "blurb": "Pastel basics with a sweet tooth",
+      "tier": "ring",
+      "status": "active",
+      "joined": "2026-08-03",
+      "tags": ["clothing"]
+    }
+  ]
+}
