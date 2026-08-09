@@ -16,7 +16,9 @@
       "tier": "ring",
       "status": "active",
       "joined": "2026-08-03",
-      "tags": ["clothing"]
+      "tags": [
+        "clothing"
+      ]
     },
     {
       "slug": "wicked-wild-treasures",
@@ -24,9 +26,11 @@
       "url": "https://wicked-wild-treasures.myshopify.com/",
       "blurb": "Creepy cute handmade trinkets (and storage for them)!",
       "tier": "ring",
-      "status": "active",
+      "status": "warned",
       "joined": "2026-08-05",
-      "tags": ["trinkets"]
+      "tags": [
+        "trinkets"
+      ]
     }
   ]
 }
