@@ -1,21 +1,21 @@
 {
-  "updated": "2026-08-14T11:33:35.214Z",
+  "updated": "2026-08-15T09:57:39.202Z",
   "sites": {
     "toothache": {
-      "lastChecked": "2026-08-14",
+      "lastChecked": "2026-08-15",
       "lastOk": "2026-08-09",
       "state": "missing",
       "http": 200,
-      "strikes": 5,
+      "strikes": 6,
       "unreachableRuns": 0,
       "note": "ring links not found in the HTML"
     },
     "wicked-wild-treasures": {
-      "lastChecked": "2026-08-14",
+      "lastChecked": "2026-08-15",
       "lastOk": null,
       "state": "missing",
       "http": 200,
-      "strikes": 8,
+      "strikes": 9,
       "unreachableRuns": 0,
       "note": "ring links not found in the HTML"
     }
