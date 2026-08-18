@@ -1,10 +1,10 @@
-# Ring check — 2026-08-17
+# Ring check — 2026-08-18
 
 0 of 2 shops passed.
 
 | | Shop | Slug | Result | Strikes | Note |
 |---|---|---|---|---|---|
-| ⚠️ | [Toothache](https://toothacheshop.com) | `toothache` | missing | 8 | ring links not found in the HTML |
-| ⚠️ | [Wicked Wild Treasures](https://wicked-wild-treasures.myshopify.com/) | `wicked-wild-treasures` | missing | 11 | ring links not found in the HTML |
+| ⚠️ | [Toothache](https://toothacheshop.com) | `toothache` | missing | 9 | ring links not found in the HTML |
+| ⚠️ | [Wicked Wild Treasures](https://wicked-wild-treasures.myshopify.com/) | `wicked-wild-treasures` | missing | 12 | ring links not found in the HTML |
 
 🌐 means we couldn't read the page at all — that never counts as a strike.
