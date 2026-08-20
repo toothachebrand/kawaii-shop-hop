@@ -5,8 +5,8 @@
     "host": "https://ring.toothacheshop.com",
     "join": "https://ring.toothacheshop.com/join/"
   },
-  "updated": "2026-08-19",
-  "count": 2,
+  "updated": "2026-08-20",
+  "count": 1,
   "members": [
     {
       "position": 1,
@@ -18,17 +18,6 @@
         "clothing"
       ],
       "joined": "2026-08-03"
-    },
-    {
-      "position": 2,
-      "slug": "wicked-wild-treasures",
-      "name": "Wicked Wild Treasures",
-      "url": "https://wicked-wild-treasures.myshopify.com/",
-      "blurb": "Creepy cute handmade trinkets (and storage for them)!",
-      "tags": [
-        "trinkets"
-      ],
-      "joined": "2026-08-05"
     }
   ],
   "friends": []
