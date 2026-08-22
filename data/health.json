@@ -1,12 +1,12 @@
 {
-  "updated": "2026-08-21T10:53:42.189Z",
+  "updated": "2026-08-22T09:59:08.636Z",
   "sites": {
     "toothache": {
-      "lastChecked": "2026-08-21",
+      "lastChecked": "2026-08-22",
       "lastOk": "2026-08-09",
       "state": "missing",
       "http": 200,
-      "strikes": 12,
+      "strikes": 13,
       "unreachableRuns": 0,
       "note": "ring links not found in the HTML"
     },
